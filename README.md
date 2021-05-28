@@ -69,9 +69,12 @@ Training is started by running `train.py`. It accepts the following important ar
 
 #### Execution example
 ```
-python train.py --loss_file_name='densenet.txt' --validation_period=1 --save_checkpoint_epochs=10 --gpu_list=0 --input_size=512 --batch_size=4 --nb_workers=1 --training_data_path=../ICDAR2015/train/ --validation_data_path=../ICDAR2015/val/ --checkpoint_path=../checkpoint-1/ --restore_model=../checkpoint-1/model-100.h5
+python train.py --loss_file_name='densenet.txt' --validation_period=1 --save_checkpoint_epochs=10 --gpu_list=0 --input_size=512 --batch_size=4 --nb_workers=1 --training_data_path ../ICDAR2015/train/ --validation_data_path=../ICDAR2015/val/ --checkpoint_path=../checkpoint-1/ --restore_model=../checkpoint-1/model-100.h5
 
 ```
+Two or more directories can be used as training dataset by setting training path like this:
+training_data_path /ICDAR2015/train/ /MLT19/train/
+
 ### Test
 
 The images you want to classify have to be in one directory, whose path you have to pass as an argument. Classification is started by running `test.py` with arguments specifying path to the images to be classified, the trained model, and a directory which you want to save the output in.
@@ -93,9 +96,9 @@ python eval.py --dataset='icdar15' --gpu_list=0 --image_path='' --test_data_path
 
 ```
 ### Results
- +English
- +Hindi
- +English
+ + English
+ + Hindi
+ + Bengali
 
 ### Detection examples
 ![image_1](examples/img_12.jpg)
