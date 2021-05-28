@@ -1,5 +1,5 @@
 
-# EAST: An Efficient and Accurate Scene Text Detector
+# EAST-DenseNet for English, Hindi and Bengali Scene Text Detection
 
 This repository is based on EAST by [kurapan](https://github.com/kurapan/EAST), which is a Keras implementation of EAST based on a Tensorflow implementation made by [argman](https://github.com/argman/EAST).
 
