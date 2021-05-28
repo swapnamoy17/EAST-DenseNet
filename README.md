@@ -83,7 +83,7 @@ python test.py --gpu_list=0 --image_path='' --test_data_path=../ICDAR2015/test/ 
 ```
 If boxes are to be predicted in only one image, then use image_path=path to image. 
 
-###Evaluation
+### Evaluation
 All of Robust Reading Competitions provide scripts to calculate the evaluation metrics like F1-Score, Precision and Recall. 
 A submission zip folder has to created for the same by running 'eval.py'.
 
@@ -92,7 +92,7 @@ A submission zip folder has to created for the same by running 'eval.py'.
 python eval.py --dataset='icdar15' --gpu_list=0 --image_path='' --test_data_path=../ICDAR2015/test/ --model_path=../checkpoint-1/model_100.h5 --output_dir=../results/
 
 ```
-###Results
+### Results
  +English
  +Hindi
  +English
