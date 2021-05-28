@@ -1,7 +1,7 @@
 
 # EAST: An Efficient and Accurate Scene Text Detector
 
-This is a Keras implementation of EAST based on a Tensorflow implementation made by [argman](https://github.com/argman/EAST).
+This repository is based on EAST by [kurapan](https://github.com/kurapan/EAST), which is a Keras implementation of EAST based on a Tensorflow implementation made by [argman](https://github.com/argman/EAST).
 
 The original paper by Zhou et al. is available on [arxiv](https://arxiv.org/abs/1704.03155).
 
@@ -10,6 +10,11 @@ The original paper by Zhou et al. is available on [arxiv](https://arxiv.org/abs/
     + Uses ResNet-50 instead of PVANet
     + Uses dice loss function instead of balanced binary cross-entropy
     + Uses AdamW optimizer instead of the original Adam
+
++ Differences from the [karupan](https://github.com/kurapan/EAST) implementation:
+    + Uses both ResNet-50 and DenseNet-201
+    + Dice Loss with squared terms in union (denominator)
+    + Saving models based on validation loss
 
 The implementation of AdamW optimizer is borrowed from [this repository](https://github.com/shaoanlu/AdamW-and-SGDW).
 
@@ -21,18 +26,29 @@ Keras 2.0 or higher, and TensorFlow 1.0 or higher should be enough.
 
 The code should run with Keras 2.1.5. If you use Keras 2.2 or higher, you have to remove `ZeroPadding2D` from the `model.py` file. Specifically, replace the line containing `ZeroPadding2D` with `x = concatenate([x, resnet.get_layer('activation_10').output], axis=3)`.
 
-I will add a list of packages and their versions under which no errors should occur later.
+I used TensorFlow 1.15.2 and Keras 2.3.1.
 
 ### Data
 
-You can use your own data, but the annotation files need to conform the ICDAR 2015 format.
+You can use your own data, but the annotation files need to conform one of ICDAR 2015, ICDAR 2013 or MLT 2019 format.
 
-ICDAR 2015 dataset can be downloaded from this [site](http://rrc.cvc.uab.es/?ch=4&com=introduction). You need the data from Task 4.1 Text Localization.\
-You can also download the [MLT dataset](http://rrc.cvc.uab.es/?ch=8&com=introduction), which uses the same annotation style as ICDAR 2015, there.
++ For English Scene Text:
 
-Alternatively, you can download a training dataset consisting of all training images from ICDAR 2015 and ICDAR 2013 datasets with annotation files in ICDAR 2015 format [here](https://drive.google.com/a/nlab-mpg.jp/uc?id=1p9a3K0czxIJ6zx0cFMURnKg5ydTK3jlk&export=download).\
-You can also get a subset of validation images from the MLT 2017 dataset containing only images with text in the Latin alphabet for validation [here](https://drive.google.com/a/nlab-mpg.jp/uc?id=1Ljye_kHCfZ54wHQINOivgClUAj8EF-v-&export=download).\
-The original datasets are distributed by the organizers of the [Robust Reading Competition](http://rrc.cvc.uab.es/) and are licensed under the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+  ICDAR 2015 dataset can be downloaded from this [site](http://rrc.cvc.uab.es/?    ch=4&com=introduction). You need the data from Task 4.1 Text Localization.\
+  
+  ICDAR 2013 dataset can be downloaded from [site](https://rrc.cvc.uab.es/?ch=2)
+
+  You can also download the [MLT dataset](https://rrc.cvc.uab.es/?ch=15) (Latin set), which uses the  same annotation style as ICDAR 2015, there.
+
++ For Hindi & Bengal Dataset:
+  
+  The training dataset of [MLT dataset](https://rrc.cvc.uab.es/?ch=15) conatins segregated 1000 images for each language. 
+   + Hindi: 9,001-10,000
+   + Bengal: 8,001-9,000
+  
+  In this project, 700, 100 and 200 images were used for training, validation and evaluation of each language.
+  
+  The original datasets are distributed by the organizers of the [Robust Reading Competition] (http://rrc.cvc.uab.es/) and are licensed under the [CC BY 4.0 license] (https://creativecommons.org/licenses/by/4.0/).
 
 ### Training
 
