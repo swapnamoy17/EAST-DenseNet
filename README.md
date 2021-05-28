@@ -57,13 +57,13 @@ You also need a directory for evaluation data, which requires the same structure
 You can either create a separate directory for validation data or use a section of training for it. 
 
 Training is started by running `train.py`. It accepts the following important arguments:
- +loss_file_name: This file contains the validation loss for the previously saved best model. Mention only the filename, it is in the checkpoint_path. 
- +validation_period: Model is saved after these many epochs depending on whether the validation loss has decresed or not. 
- +checkpoint_epochs: Model is saved regardless of validation loss. 
- +n: Epoch number from which the training is to resumed. (1 + number of epochs completed.) 
- +dataset: icdar13, icdar15 or mlt 
- +model_type: resnet or densenet
- +train_val_ratio: Ratio in which training dataset is to be split for training and validation. 
+ + loss_file_name: This file contains the validation loss for the previously saved best model. Mention only the filename, it is in the checkpoint_path. 
+ + validation_period: Model is saved after these many epochs depending on whether the validation loss has decresed or not. 
+ + checkpoint_epochs: Model is saved regardless of validation loss. 
+ + n: Epoch number from which the training is to resumed. (1 + number of epochs completed.) 
+ + dataset: icdar13, icdar15 or mlt 
+ + model_type: resnet or densenet
+ + train_val_ratio: Ratio in which training dataset is to be split for training and validation. 
  
  For spliting training dataset into training and validation, the validation_data_path should be empty (""). 
 
