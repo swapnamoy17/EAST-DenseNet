@@ -52,26 +52,50 @@ You can use your own data, but the annotation files need to conform one of ICDAR
 
 ### Training
 
-You need to put all of your training images and their corresponding annotation files in one directory. The annotation files have to be named `gt_IMAGENAME.txt`.\
-You also need a directory for validation data, which requires the same structure as the directory with training images.
+You need to put all of your training images and their corresponding annotation files in one directory. The annotation files have to be named `gt_IMAGENAME.txt`(ICDAR15) or 'IMAGENAME.txt'(MLT19).\
+You also need a directory for evaluation data, which requires the same structure as the directory with training images.
+You can either create a separate directory for validation data or use a section of training for it. 
 
-Training is started by running `train.py`. It accepts several arguments including path to training and validation data, and path where you want to save trained checkpoint models. You can see all of the arguments you can specify in the `train.py` file.
+Training is started by running `train.py`. It accepts the following important arguments:
+ +loss_file_name: This file contains the validation loss for the previously saved best model. Mention only the filename, it is in the checkpoint_path. 
+ +validation_period: Model is saved after these many epochs depending on whether the validation loss has decresed or not. 
+ +checkpoint_epochs: Model is saved regardless of validation loss. 
+ +n: Epoch number from which the training is to resumed. (1 + number of epochs completed.) 
+ +dataset: icdar13, icdar15 or mlt 
+ +model_type: resnet or densenet
+ +train_val_ratio: Ratio in which training dataset is to be split for training and validation. 
+ 
+ For spliting training dataset into training and validation, the validation_data_path should be empty (""). 
 
 #### Execution example
 ```
-python train.py --gpu_list=0,1 --input_size=512 --batch_size=12 --nb_workers=6 --training_data_path=../data/ICDAR2015/train_data/ --validation_data_path=../data/MLT/val_data_latin/ --checkpoint_path=tmp/icdar2015_east_resnet50/
+python train.py --loss_file_name='densenet.txt' --validation_period=1 --save_checkpoint_epochs=10 --gpu_list=0 --input_size=512 --batch_size=4 --nb_workers=1 --training_data_path=../ICDAR2015/train/ --validation_data_path=../ICDAR2015/val/ --checkpoint_path=../checkpoint-1/ --restore_model=../checkpoint-1/model-100.h5
+
 ```
-
-You can download a model trained on ICDAR 2015 and 2013 [here](https://drive.google.com/file/d/1hfIzGuQn-xApDYiucMDZvOCosyAVwvku/view?usp=sharing). It achieves 0.802 F-score on ICDAR 2015 test set. You also need to download this [JSON file](https://drive.google.com/file/d/1gnkdCToYQfdU3ssaOareFTBr0Nz6u4rr/view?usp=sharing) of the model to be able to use it.
-
 ### Test
 
-The images you want to classify have to be in one directory, whose path you have to pass as an argument. Classification is started by running `eval.py` with arguments specifying path to the images to be classified, the trained model, and a directory which you want to save the output in.
+The images you want to classify have to be in one directory, whose path you have to pass as an argument. Classification is started by running `test.py` with arguments specifying path to the images to be classified, the trained model, and a directory which you want to save the output in.
 
 #### Execution example
 ```
-python eval.py --gpu_list=0 --test_data_path=../data/ICDAR2015/test/ --model_path=tmp/icdar2015_east_resnet50/model_XXX.h5 --output_dir=tmp/icdar2015_east_resnet50/eval/
+python test.py --gpu_list=0 --image_path='' --test_data_path=../ICDAR2015/test/ --model_path=../checkpoint-1/model_100.h5 --output_dir=../results/
+
 ```
+If boxes are to be predicted in only one image, then use image_path=path to image. 
+
+###Evaluation
+All of Robust Reading Competitions provide scripts to calculate the evaluation metrics like F1-Score, Precision and Recall. 
+A submission zip folder has to created for the same by running 'eval.py'.
+
+#### Execution example
+```
+python eval.py --dataset='icdar15' --gpu_list=0 --image_path='' --test_data_path=../ICDAR2015/test/ --model_path=../checkpoint-1/model_100.h5 --output_dir=../results/
+
+```
+###Results
+ +English
+ +Hindi
+ +English
 
 ### Detection examples
 ![image_1](examples/img_12.jpg)
