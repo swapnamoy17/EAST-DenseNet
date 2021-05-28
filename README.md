@@ -34,7 +34,7 @@ You can use your own data, but the annotation files need to conform one of ICDAR
 
 + For English Scene Text:
 
-  ICDAR 2015 dataset can be downloaded from this [site](http://rrc.cvc.uab.es/?    ch=4&com=introduction). You need the data from Task 4.1 Text Localization.\
+  ICDAR 2015 dataset can be downloaded from this [site](http://rrc.cvc.uab.es/?ch=4&com=introduction). You need the data from Task 4.1 Text Localization.\
   
   ICDAR 2013 dataset can be downloaded from [site](https://rrc.cvc.uab.es/?ch=2)
 
@@ -48,7 +48,7 @@ You can use your own data, but the annotation files need to conform one of ICDAR
   
   In this project, 700, 100 and 200 images were used for training, validation and evaluation of each language.
   
-  The original datasets are distributed by the organizers of the [Robust Reading Competition] (http://rrc.cvc.uab.es/) and are licensed under the [CC BY 4.0 license] (https://creativecommons.org/licenses/by/4.0/).
+  The original datasets are distributed by the organizers of the [Robust Reading Competition](http://rrc.cvc.uab.es/) and are licensed under the [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 
 ### Training
 
