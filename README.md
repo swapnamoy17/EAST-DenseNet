@@ -101,10 +101,10 @@ python eval.py --dataset='icdar15' --gpu_list=0 --image_path='' --test_data_path
  + Bengali
 
 ### Detection examples
-![image_1](examples/eng1.png)
-![image_2](examples/eng2.png)
-![image_3](examples/eng3.png)
-![image_4](examples/eng4.png)
+![image_1](examples/eng1.PNG)
+![image_2](examples/eng2.PNG)
+![image_3](examples/eng3.PNG)
+![image_4](examples/eng4.PNG)
 ![image_5](examples/tr_img_09808.jpg)
 ![image_6](examples/tr_img_09811.jpg)
 ![image_7](examples/tr_img_09814.jpg)
