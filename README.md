@@ -1,7 +1,7 @@
 
 # EAST-DenseNet for English, Hindi and Bengali Scene Text Detection
 
-Paper for EAST - DenseNet201: https://ieeexplore.ieee.org/abstract/document/9418116
+Our Paper for EAST - DenseNet201: https://ieeexplore.ieee.org/abstract/document/9418116
 
 This repository is based on EAST by [kurapan](https://github.com/kurapan/EAST), which is a Keras implementation of EAST based on a Tensorflow implementation made by [argman](https://github.com/argman/EAST).
 
@@ -98,54 +98,32 @@ python eval.py --dataset='icdar15' --gpu_list=0 --image_path='' --test_data_path
 
 ```
 ### Results
- + English
- Precision, Recall and F-score result comparison EAST detectors (Table II in our paper)
-Algorithm
-Precision
-Recall
-F-score
-EAST+PVANET2x RBOX MS*
-0.7833
-0.8327
-0.8072
-EAST+PVANET2x RBOX
-0.7347
-0.8357
-0.7820
-EAST + PVANET2x QUAD 
-0.7419
-0.8018
-0.7707
-EAST + VGG16 RBOX
-0.7275
-0.8046
-0.7641
-EAST + PVANET RBOX
-0.7135
-0.8063
-0.7571
-EAST + PVANET QUAD
-0.6856
-0.8119
-0.7434
-EAST + VGG16 QUAD
-0.6895
-0.7987
-0.7401
-EAST + DenseNet201 RBOX(Ours)
-0.8121
+ #### English
+ 
+| Algorithm | Precision | Recall | F-score |
+| --------- | --------- | ------ | ------- |
+| EAST+PVANET2x RBOX | 0.7347 | 0.8357 | 0.7820 |
+| EAST + PVANET2x QUAD | 0.7419 | 0.8018 | 0.7707 | 
+| EAST + VGG16 RBOX | 0.7275 | 0.8046 | 0.7641 |
+| EAST + PVANET RBOX | 0.7135 | 0.8063 | 0.7571 | 
+| EAST + PVANET QUAD | 0.6856 | 0.8119 | 0.7434 |
+| EAST + VGG16 QUAD | 0.6895 | 0.7987 | 0.7401 |
+| **EAST + DenseNet201 RBOX(Ours)** | **0.8121** | 0.7472 | 0.7783 |
 
+Precision, Recall and F-score result comparison EAST detectors on ICDAR15 Dataset 
+(Table II in our [paper](https://ieeexplore.ieee.org/abstract/document/9418116))
 
-0.7472
+ #### Hindi
+ 
+| Model | Precision | Recall | F-score |
+| ----- | --------- | ------ | ------- |
+| **EAST (DenseNet201) (Ours)** | **0.905** | **0.87** | **0.886** |
+| **EAST (ResNet50) (Ours)** | 0.904 | 0.86 | 0.88 |
+| [ResNet-50](https://www.irjet.net/archives/V7/i5/IRJET-V7I51404.pdf) | 0.769 | 0.714 | 0.74 |
+| [ResNet-101](https://www.irjet.net/archives/V7/i5/IRJET-V7I51404.pdf) | 0.795 | 0.734 | 0.762 |
+| [ResNet-152](https://www.irjet.net/archives/V7/i5/IRJET-V7I51404.pdf) | 0.82 | 0.753 | 0.785 |
 
-
-0.7783
-
-
-
-
- + Hindi
- + Bengali
+Results of both EAST models and SOTA models on MLT19-Hindi Dataset
 
 ### Detection examples
 ![image_1](examples/eng1.PNG)
