@@ -99,6 +99,51 @@ python eval.py --dataset='icdar15' --gpu_list=0 --image_path='' --test_data_path
 ```
 ### Results
  + English
+ Precision, Recall and F-score result comparison EAST detectors (Table II in our paper)
+Algorithm
+Precision
+Recall
+F-score
+EAST+PVANET2x RBOX MS*
+0.7833
+0.8327
+0.8072
+EAST+PVANET2x RBOX
+0.7347
+0.8357
+0.7820
+EAST + PVANET2x QUAD 
+0.7419
+0.8018
+0.7707
+EAST + VGG16 RBOX
+0.7275
+0.8046
+0.7641
+EAST + PVANET RBOX
+0.7135
+0.8063
+0.7571
+EAST + PVANET QUAD
+0.6856
+0.8119
+0.7434
+EAST + VGG16 QUAD
+0.6895
+0.7987
+0.7401
+EAST + DenseNet201 RBOX(Ours)
+0.8121
+
+
+0.7472
+
+
+0.7783
+
+
+
+
  + Hindi
  + Bengali
 
